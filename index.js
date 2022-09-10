@@ -1,4 +1,5 @@
 let img = document.createElement("img");
+const section = document.getElementById("dog");
 const results_button = document.getElementById("button");
 results_button.addEventListener("click", get_results);
 
@@ -16,6 +17,7 @@ function get_results() {
     .then((response) => response.json())
     .then((data) => {
 
+      console.log(data.gender);
       gender_container.innerHTML = data.gender;
       
   })
@@ -24,6 +26,7 @@ function get_results() {
     .then((response) => response.json())
     .then((data) => {
 
+      console.log(data.age);  
       age_container.innerHTML = data.age;
 
   })
@@ -50,6 +53,7 @@ fetch("https://dog.ceo/api/breeds/image/random")
     .then((data) => {
 
       img.src = data.message;
-      document.body.appendChild(img)
+      section.appendChild(img);
+
     
 });
