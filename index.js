@@ -33,7 +33,16 @@ function get_results() {
     .then((response) => response.json())
     .then((data) => {
 
-      nationality_container.innerHTML = data.country[0].country_id +" or "+ data.country[1].country_id;
+      console.log(data.country);
+
+      if (data.country.length == 0) {
+        nationality_container.innerHTML ="N/A";
+      } else if (data.country.length == 1) {
+        nationality_container.innerHTML = data.country[0].country_id;
+      } else {
+        nationality_container.innerHTML = data.country[0].country_id +" or "+ data.country[1].country_id;
+      }
+      
 
   })
 }
