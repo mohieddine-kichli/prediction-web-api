@@ -8,12 +8,16 @@ function get_results() {
   const api_gender = 'https://api.genderize.io/?name=' + name;
   const api_age = 'https://api.agify.io/?name=' + name;
   const api_nationalize = 'https://api.nationalize.io/?name=' + name;
+  const gender_container = document.getElementById("gender");
+  const age_container = document.getElementById("age");;
+  const nationality_container = document.getElementById("nationality") 
+
 
   fetch(api_gender)
     .then((response) => response.json())
     .then((data) => {
 
-      console.log(data.gender);
+      gender_container.innerHTML = data.gender;
       
   })
 
@@ -21,7 +25,7 @@ function get_results() {
     .then((response) => response.json())
     .then((data) => {
 
-      console.log(data.age);
+      age_container.innerHTML = data.age;
 
   })
 
@@ -29,7 +33,7 @@ function get_results() {
     .then((response) => response.json())
     .then((data) => {
 
-      console.log(data.country[0].country_id);
+      nationality_container.innerHTML = data.country[0].country_id +" or "+ data.country[1].country_id;
 
   })
 }
