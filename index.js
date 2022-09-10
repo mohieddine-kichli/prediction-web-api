@@ -1,5 +1,5 @@
+let img = document.createElement("img");
 const results_button = document.getElementById("button");
-
 results_button.addEventListener("click", get_results);
 
 function get_results() {
@@ -11,7 +11,6 @@ function get_results() {
   const gender_container = document.getElementById("gender");
   const age_container = document.getElementById("age");;
   const nationality_container = document.getElementById("nationality") 
-
 
   fetch(api_gender)
     .then((response) => response.json())
@@ -42,8 +41,15 @@ function get_results() {
       } else {
         nationality_container.innerHTML = data.country[0].country_id +" or "+ data.country[1].country_id;
       }
-      
 
   })
 }
 
+fetch("https://dog.ceo/api/breeds/image/random")
+    .then((response) => response.json())
+    .then((data) => {
+
+      img.src = data.message;
+      document.body.appendChild(img)
+    
+});
