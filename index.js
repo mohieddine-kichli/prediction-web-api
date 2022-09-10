@@ -1,4 +1,4 @@
-
+console.log(document.getElementById("hh"));
 const input = "luis";
 const api_gender ='https://api.nationalize.io/?name=' + input;
 const api_age = 'https://api.agify.io/?name=' + input;
