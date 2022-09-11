@@ -1,8 +1,9 @@
 let img = document.createElement("img");
 const section = document.getElementById("dog");
 const results_button = document.getElementById("button");
-results_button.addEventListener("click", get_results);
 
+// Getting data from the api after user clikcs the get results butoon
+results_button.addEventListener("click", get_results);
 function get_results() {
   const input = document.getElementById("name");
   const name = input.value;
@@ -17,26 +18,21 @@ function get_results() {
     .then((response) => response.json())
     .then((data) => {
 
-      console.log(data.gender);
       gender_container.innerHTML = data.gender;
-      
   })
 
   fetch(api_age)
     .then((response) => response.json())
     .then((data) => {
-
-      console.log(data.age);  
+ 
       age_container.innerHTML = data.age;
-
   })
 
   fetch(api_nationalize)
     .then((response) => response.json())
     .then((data) => {
 
-      console.log(data.country);
-
+      // To display the proper number of nationalities based on the array result from the api.
       if (data.country.length == 0) {
         nationality_container.innerHTML ="N/A";
       } else if (data.country.length == 1) {
@@ -54,6 +50,4 @@ fetch("https://dog.ceo/api/breeds/image/random")
 
       img.src = data.message;
       section.appendChild(img);
-
-    
 });
