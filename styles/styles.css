@@ -7,11 +7,20 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
+main, header, section, footer {
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #000000;
+}
 h1 {
     display: flex;
     justify-content: center;
     background-color: aquamarine;
     padding:10px;
+}
+
+h3 {
+    margin-bottom: 20px;
 }
 
 .hero {
@@ -21,19 +30,16 @@ h1 {
 
 .content {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    background-color: blue;
+    background-color: green;
 }
 
-.results{
-    flex-basis: 200px;
+img{
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .footer {
     background-color: blueviolet;
-}
-
-.responsive {
-
-    width:100%;
 }
